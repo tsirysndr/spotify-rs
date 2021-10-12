@@ -26,10 +26,12 @@ pub struct Spotify {
     pub search: search::SearchService,
 }
 
+const BASE_URL: &str = "https://api.spotify.com/v1";
+
 impl Spotify {
     pub fn new() -> Self {
         let client: Client = Config::new()
-            .set_base_url(Url::parse("https://api.spotify.com/v1/").unwrap())
+            .set_base_url(Url::parse(BASE_URL).unwrap())
             .set_timeout(Some(Duration::from_secs(5)))
             .try_into()
             .unwrap();
