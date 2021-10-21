@@ -10,4 +10,8 @@ impl PlayerService {
       client: client.clone(),
     }
   }
+
+  pub fn get_currently_playing(&self) {}
+
+  pub fn get_recently_played(&self) {}
 }

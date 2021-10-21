@@ -10,4 +10,12 @@ impl LibraryService {
       client: client.clone(),
     }
   }
+
+  pub fn get_current_user_saved_tracks(&self) {}
+
+  pub fn get_current_user_saved_albums(&self) {}
+
+  pub fn check_current_user_saved_tracks(&self) {}
+
+  pub fn check_current_user_saved_albums(&self) {}
 }
