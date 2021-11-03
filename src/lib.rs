@@ -12,6 +12,7 @@ pub mod me;
 pub mod player;
 pub mod playlist;
 pub mod search;
+pub mod track;
 
 pub struct Spotify {
     pub album: album::AlbumService,
@@ -24,14 +25,17 @@ pub struct Spotify {
     pub player: player::PlayerService,
     pub playlist: playlist::PlaylistService,
     pub search: search::SearchService,
+    pub track: track::TrackService,
 }
 
-const BASE_URL: &str = "https://api.spotify.com/v1";
+const BASE_URL: &str = "https://api.spotify.com/v1/";
 
 impl Spotify {
-    pub fn new() -> Self {
+    pub fn new(token: &str) -> Self {
         let client: Client = Config::new()
             .set_base_url(Url::parse(BASE_URL).unwrap())
+            .add_header("Authorization", format!("Bearer {}", token))
+            .unwrap()
             .set_timeout(Some(Duration::from_secs(5)))
             .try_into()
             .unwrap();
@@ -46,6 +50,7 @@ impl Spotify {
             player: player::PlayerService::new(&client),
             playlist: playlist::PlaylistService::new(&client),
             search: search::SearchService::new(&client),
+            track: track::TrackService::new(&client),
         }
     }
 }

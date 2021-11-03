@@ -1,4 +1,8 @@
+use serde::Deserialize;
 use surf::Client;
+
+#[derive(Debug, Deserialize)]
+pub struct Playlist {}
 
 pub struct PlaylistService {
   client: Client,
@@ -11,11 +15,19 @@ impl PlaylistService {
     }
   }
 
-  pub fn get(&self) {}
+  pub async fn get(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 
-  pub fn get_cover_images(&self) {}
+  pub async fn get_cover_images(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 
-  pub fn get_tracks(&self) {}
+  pub async fn get_tracks(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 
-  pub fn get_user_playlists(&self) {}
+  pub async fn get_user_playlists(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 }

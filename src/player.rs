@@ -11,7 +11,11 @@ impl PlayerService {
     }
   }
 
-  pub fn get_currently_playing(&self) {}
+  pub async fn get_currently_playing(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 
-  pub fn get_recently_played(&self) {}
+  pub async fn get_recently_played(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 }

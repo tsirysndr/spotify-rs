@@ -11,11 +11,19 @@ impl LibraryService {
     }
   }
 
-  pub fn get_current_user_saved_tracks(&self) {}
+  pub async fn get_current_user_saved_tracks(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 
-  pub fn get_current_user_saved_albums(&self) {}
+  pub async fn get_current_user_saved_albums(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 
-  pub fn check_current_user_saved_tracks(&self) {}
+  pub async fn check_current_user_saved_tracks(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 
-  pub fn check_current_user_saved_albums(&self) {}
+  pub async fn check_current_user_saved_albums(&self) -> Result<(), surf::Error> {
+    Ok(())
+  }
 }
