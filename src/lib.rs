@@ -17,8 +17,6 @@ pub mod track;
 pub struct Spotify {
     pub album: album::AlbumService,
     pub artist: artist::ArtistService,
-    pub audio_analysis: audio_analysis::AudioAnalysisService,
-    pub audio_features: audio_features::AudioFeaturesService,
     pub category: category::CategoryService,
     pub library: library::LibraryService,
     pub me: me::MeService,
@@ -42,8 +40,6 @@ impl Spotify {
         Self {
             album: album::AlbumService::new(&client),
             artist: artist::ArtistService::new(&client),
-            audio_analysis: audio_analysis::AudioAnalysisService::new(&client),
-            audio_features: audio_features::AudioFeaturesService::new(&client),
             category: category::CategoryService::new(&client),
             library: library::LibraryService::new(&client),
             me: me::MeService::new(&client),

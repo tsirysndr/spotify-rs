@@ -1,5 +1,5 @@
 use crate::artist::Artist;
-use crate::track::Tracks;
+use crate::track::AlbumTracks;
 use serde::{Deserialize, Serialize};
 use surf::Client;
 
@@ -8,19 +8,19 @@ pub struct Album {
   pub album_type: String,
   pub artists: Vec<Artist>,
   pub available_markets: Vec<String>,
-  pub copyrights: Vec<Copyright>,
+  pub copyrights: Option<Vec<Copyright>>,
   pub external_ids: Option<ExternalIds>,
   pub external_urls: Option<ExternalUrls>,
-  pub genres: Vec<String>,
+  pub genres: Option<Vec<String>>,
   pub href: String,
   pub id: String,
   pub images: Vec<Image>,
-  pub label: String,
+  pub label: Option<String>,
   pub name: String,
-  pub popularity: i32,
+  pub popularity: Option<i32>,
   pub release_date: String,
   pub release_date_precision: String,
-  pub tracks: Option<Tracks>,
+  pub tracks: Option<AlbumTracks>,
   pub r#type: String,
   pub uri: String,
 }
@@ -99,13 +99,18 @@ impl AlbumService {
     Ok(res)
   }
 
-  pub async fn get_tracks(&self, id: &str, limit: u32, offset: u32) -> Result<Tracks, surf::Error> {
+  pub async fn get_tracks(
+    &self,
+    id: &str,
+    limit: u32,
+    offset: u32,
+  ) -> Result<AlbumTracks, surf::Error> {
     let params = PaginationParams { limit, offset };
     let res = self
       .client
       .get(format!("albums/{}/tracks", id))
       .query(&params)?
-      .recv_json::<Tracks>()
+      .recv_json::<AlbumTracks>()
       .await?;
     Ok(res)
   }
