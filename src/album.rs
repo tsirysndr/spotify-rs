@@ -45,9 +45,9 @@ pub struct ExternalUrls {
 
 #[derive(Debug, Deserialize)]
 pub struct Image {
-  pub height: u32,
+  pub height: Option<u32>,
   pub url: String,
-  pub width: u32,
+  pub width: Option<u32>,
 }
 
 #[derive(Debug, Deserialize)]
