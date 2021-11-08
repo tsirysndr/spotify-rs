@@ -2,6 +2,7 @@ use spotify_rs::Spotify;
 
 #[tokio::main]
 async fn main() {
+  // Replace with your ACCESS TOKEN
   const ACCESS_TOKEN: &str = "BQBIJbmSq7rJzfK1vqxYIG3UM0KxbdIDtKRaUVo6DgzbSJjXGpx7SFX5ht04R7-3uGX4KDrykUh5Vsl4cdf46NWNzHY3qW1QtbNLtjk1NFBRDZpSMW0rahAHx-RXb0Vzubgmcd_LLVHuE2PnQFwnOVxHLGZU0sQ";
   let ids: &str = "382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc";
   let client = Spotify::new(ACCESS_TOKEN);
