@@ -3,7 +3,7 @@ use spotify_rs::Spotify;
 #[tokio::main]
 async fn main() {
   // Replace with your ACCESS TOKEN
-  const ACCESS_TOKEN: &str = "BQBIJbmSq7rJzfK1vqxYIG3UM0KxbdIDtKRaUVo6DgzbSJjXGpx7SFX5ht04R7-3uGX4KDrykUh5Vsl4cdf46NWNzHY3qW1QtbNLtjk1NFBRDZpSMW0rahAHx-RXb0Vzubgmcd_LLVHuE2PnQFwnOVxHLGZU0sQ";
+  const ACCESS_TOKEN: &str = "BQDI283HtriJauD9ItNR1s5Z5223MT2eJ4QW3QVpwakaJhVNb9bLo6zIB-YksmvM2Gn8hqkc4wSzDwQwV3buj4twYSjxj88CkhFen9PrGksfP0slF1NfHvdYdVZx6n1cLfc5brEtVH6rOQu8o7wNHATK6Ns2UtU";
   let ids: &str = "382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc";
   let client = Spotify::new(ACCESS_TOKEN);
   let album = client.album.get("382ObEPsp2rxGrnsizN5TX").await;
@@ -31,6 +31,8 @@ async fn main() {
     .get_tracks("37i9dQZF1DXcBWIGoYBM5M", 50, 0)
     .await;
   let user_playlists = client.playlist.get_user_playlists("smedja", 50, 0).await;
+  let search_result = client.search.get("Muse", "track,artist,album", 50, 0).await;
+
   println!("{:#?}\n", album.unwrap());
   println!("{:#?}\n", albums.unwrap());
   println!("{:#?}\n", album_tracks.unwrap());
@@ -44,4 +46,5 @@ async fn main() {
   println!("{:#?}\n", cover_images.unwrap());
   println!("{:#?}\n", playlist_tracks.unwrap());
   println!("{:#?}\n", user_playlists.unwrap());
+  println!("{:#?}\n", search_result.unwrap());
 }

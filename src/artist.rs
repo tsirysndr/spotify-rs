@@ -18,6 +18,16 @@ pub struct Artist {
 }
 
 #[derive(Debug, Deserialize)]
+pub struct Artists {
+  pub href: String,
+  pub items: Vec<Artist>,
+  pub limit: u32,
+  pub next: Option<String>,
+  pub offset: u32,
+  pub previous: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
 pub struct Followers {
   pub href: Option<String>,
   pub total: u32,

@@ -55,6 +55,16 @@ pub struct Albums {
   pub albums: Vec<Album>,
 }
 
+#[derive(Debug, Deserialize)]
+pub struct AlbumsResult {
+  pub items: Vec<Album>,
+  pub limit: u32,
+  pub next: Option<String>,
+  pub offset: u32,
+  pub previous: Option<String>,
+  pub total: u32,
+}
+
 #[derive(Debug, Serialize, Deserialize)]
 pub struct AlbumParams {
   pub ids: String,
