@@ -3,6 +3,9 @@
   <a href="https://github.com/tsirysndr/spotify-rs/blob/master/LICENSE"" target="_blank">
     <img alt="License: BSD" src="https://img.shields.io/badge/License-BSD-green.svg" />
   </a>
+  <a href="https://github.com/tsirysndr/spotify-rs/commits/master">
+    <img src="https://img.shields.io/github/last-commit/tsirysndr/spotify-rs.svg" target="_blank" />
+  </a>
   <a href="https://twitter.com/tsiry_sndr" target="_blank">
     <img alt="Twitter: tsiry_sndr" src="https://img.shields.io/twitter/follow/tsiry_sndr.svg?style=social" />
   </a>
